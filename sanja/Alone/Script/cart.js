@@ -47,6 +47,8 @@ var flowers = [{
     price: 32.00,
     qtty: 1
 }];
+
+//for SORTING ad a function = "" so that you can call it later in sortUp
 for (let value of flowers) {
     document.getElementsByClassName("flower")[0].innerHTML += `<div class="flower col-12 col-md-6 col-lg-4 text-center fw-bold">
     <div class="card text-white"><img class="flower-image" src="${value.image}" width="200" height="200">
@@ -61,19 +63,21 @@ for (let value of flowers) {
     </div>
     `;
 }
-let sortPrUp = document.getElementsByClassName('sortUp');
-for (let i = 0; i < sortPrUp.length; i++) { //6.1
-    sortUp[i].addEventListener("click", function() {
-        sortPrUp(i);
-        summary();
-        countItems();
-    });
+let sortPrUp = document.getElementById('sortUp');
 
-}
+sortPrUp.addEventListener("click", function() {
+    sortUp();
+    createRows();
+    summary();
+    countItems();
+});
 
-function sortUp(index) { //6.2
+
+
+function sortUp() { //6.2
     flowers.sort((a, b) => a.price - b.price);
-    document.getElementsByClassName("cart-quantity")[index].innerHTML = cart[index].qtty;
+    //document.getElementsByClassName("cart-quantity")[index].innerHTML = cart[index].qtty;
+    console.table(flowers);
 }
 
 var cart = [];
@@ -181,18 +185,22 @@ function deleteFlower(index) { //6.2
 
 //10% on EUR 100,-
 function discount(price) {
+    let summary;
     if (price >= 100) {
         summary = price * 0.1;
+    } else {
+        summary = 0;
     }
-
     return summary;
 }
 
 
 function summary() { //5
-    let summary = 0;
+    let summary_value = 0;
     for (let value of cart) {
-        summary = summary + (value.qtty * value.price)
+        summary_value = summary_value + (value.qtty * value.price)
     }
-    document.getElementById("price").innerHTML = summary.toFixed(2) + " €"; //.toFixed(2) to be a decimal with 2 numbers after dot
+    let final_discount = discount(summary_value)
+    console.log(final_discount);
+    document.getElementById("price").innerHTML = summary_value.toFixed(2) + " €"; //.toFixed(2) to be a decimal with 2 numbers after dot
 }
