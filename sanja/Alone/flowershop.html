@@ -16,7 +16,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-light mynav">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"> <img src="https://codefactory.wien/wp-content/uploads/2020/12/cropped-CodeFactory-LOGO-September-2020.png" alt="" width="150" height="50" class="d-inline-block align-top">
+            <a class="navbar-brand" href="#"> <img src="Images/flower-logo.jpg" alt="" width="150" height="80" class="d-inline-block align-top">
 
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,17 +40,24 @@
     <!-- here ends navbar -->
     <div class="container">
         <h2 class="text-center w-100 my-5 mx-1 p-3 h1 bg-light">Flowers</h2>
+        <div class="rightside align-self-center pe-5">
+            <p>Sort by priority: <img src="images/sortup.png" alt="" width="40" height="32" id="sortUp"> <img src="images/sortdown.jpg" width="40" height="32" id="sortDown" alt=""></p>
+        </div>
         <div class="flower row"></div>
 
         <!--cart starts here  -->
         <div id="cart" class="mt-5">
-            <div class="cart-header h4  border-bottom row">
+            <div class="cart-header h4 border-bottom row">
                 <span class="cart-item col-6 mb-3 ">ITEM</span>
                 <span class="cart-price col-3 mb-3">PRICE</span>
                 <span class="col-3 mb-3">QUANTITY</span>
             </div>
             <div id="cart-items">
                 <!-- empty cart -->
+            </div>
+            <div id="countofItems" class="cart-count">
+                <strong class="cart-total-title">Count of items</strong>
+                <span id="count" class="cart-total-count h4">0</span>
             </div>
             <div id="total" class="cart-total">
                 <strong class="cart-total-title">Total</strong>

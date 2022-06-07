@@ -70,6 +70,8 @@ function addToCart(flower) { //1
         cart.push(flower); //1
     }
     summary();
+    countItems();
+
     createRows();
 
     // console.table(cart); //1
@@ -111,20 +113,32 @@ function createRows() { //4
         plus[i].addEventListener("click", function() {
             plusQuantity(i);
             summary();
+            countItems();
         });
         minus[i].addEventListener("click", function() { //7.1
             minusQuantity(i);
             summary();
+            countItems();
         })
         deleTe[i].addEventListener("click", function() { //8.1
             deleteFlower(i);
             summary();
+            countItems();
         });
 
 
     }
 
     // document.getElementById("cart-items").innerHTML = result;
+}
+
+function countItems() { //9
+    let countItems = 0;
+    for (let value of cart) {
+        countItems = countItems + value.qtty;
+    }
+    document.getElementById("count").innerHTML = countItems;
+
 }
 
 function plusQuantity(index) { //6.2
@@ -148,6 +162,15 @@ function deleteFlower(index) { //6.2
     cart.splice(index, 1);
     createRows();
 }
+//10% on EUR 100,-
+function discount(price) {
+    if (price >= 100) {
+        summary = price * 0.1;
+    }
+
+    return summary;
+}
+
 
 function summary() { //5
     let summary = 0;
