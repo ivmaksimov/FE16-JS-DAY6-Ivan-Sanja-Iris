@@ -61,6 +61,21 @@ for (let value of flowers) {
     </div>
     `;
 }
+let sortPrUp = document.getElementsByClassName('sortUp');
+for (let i = 0; i < sortPrUp.length; i++) { //6.1
+    sortUp[i].addEventListener("click", function() {
+        sortPrUp(i);
+        summary();
+        countItems();
+    });
+
+}
+
+function sortUp(index) { //6.2
+    flowers.sort((a, b) => a.price - b.price);
+    document.getElementsByClassName("cart-quantity")[index].innerHTML = cart[index].qtty;
+}
+
 var cart = [];
 
 function addToCart(flower) { //1
@@ -162,6 +177,8 @@ function deleteFlower(index) { //6.2
     cart.splice(index, 1);
     createRows();
 }
+
+
 //10% on EUR 100,-
 function discount(price) {
     if (price >= 100) {
