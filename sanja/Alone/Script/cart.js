@@ -50,7 +50,7 @@ var flowers = [{
 
 //for SORTING ad a function = "" so that you can call it later in sortUp
 for (let value of flowers) {
-    document.getElementsByClassName("flower")[0].innerHTML += `<div class="flower col-12 col-md-6 col-lg-4 text-center fw-bold">
+    document.getElementsByClassName("flower")[0].innerHTML += `<div class="flower mb-5col-12 col-md-6 col-lg-4 text-center fw-bold">
     <div class="card text-white"><img class="flower-image" src="${value.image}" width="200" height="200">
     <div class="card-img-overlay">
     <h5 class="flower-title text-white card-title">${value.name}</h5>
