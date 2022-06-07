@@ -90,7 +90,7 @@ function addToCart(flower) { //1
     }
     summary();
     countItems();
-
+    discount();
     createRows();
 
     // console.table(cart); //1
@@ -192,6 +192,7 @@ function discount(price) {
         summary = 0;
     }
     return summary;
+    // document.getElementById("action").innerHTML = summary;
 }
 
 
